@@ -8,7 +8,7 @@ Enhancv is an AI-powered resume analyzer that helps job seekers optimize their r
 
 ## 🌐 Live Demo
 
-🚀 [enhancv.vercel.app](https://enhancv.vercel.app)
+🚀 [enhancv.vercel.app](https://enhancv-three.vercel.app/)
 
 ---
 
