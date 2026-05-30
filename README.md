@@ -194,7 +194,6 @@ This project is open source and available under the [MIT License](LICENSE).
 **Aditya Jha**
 - GitHub: [@aadii021](https://github.com/aadii021)
 - Email: adityajha9313@gmail.com
-- LinkedIn: [linkedin.com/in/aditya-jha](https://linkedin.com/in/aditya-jha)
 
 ---
 
