@@ -21,19 +21,19 @@ const Upload = () => {
     const handleAnalyze = async ({ companyName, jobTitle, jobDescription, file }: { companyName: string, jobTitle: string, jobDescription: string, file: File  }) => {
         setIsProcessing(true);
 
-        setStatusText('Uploading the file...');
+        setStatusText('Uploading your resume...');
         const uploadedFile = await fs.upload([file]);
         if(!uploadedFile) return setStatusText('Error: Failed to upload file');
 
-        setStatusText('Converting to image...');
+        setStatusText('Processing your resume...');
         const imageFile = await convertPdfToImage(file);
-        if(!imageFile.file) return setStatusText('Error: Failed to convert PDF to image');
+        if(!imageFile.file) return setStatusText('Error: Failed to process resume');
 
-        setStatusText('Uploading the image...');
+        setStatusText('Saving resume data...');
         const uploadedImage = await fs.upload([imageFile.file]);
-        if(!uploadedImage) return setStatusText('Error: Failed to upload image');
+        if(!uploadedImage) return setStatusText('Error: Failed to save resume');
 
-        setStatusText('Preparing data...');
+        setStatusText('Preparing AI analysis...');
         const uuid = generateUUID();
         const data = {
             id: uuid,
@@ -44,7 +44,7 @@ const Upload = () => {
         }
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
 
-        setStatusText('Analyzing...');
+        setStatusText('Running AI analysis on your resume...');
 
         const feedback = await ai.feedback(
             uploadedFile.path,
@@ -58,8 +58,7 @@ const Upload = () => {
 
         data.feedback = JSON.parse(feedbackText);
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
-        setStatusText('Analysis complete, redirecting...');
-        console.log(data);
+        setStatusText('Analysis complete! Redirecting to your results...');
         navigate(`/resume/${uuid}`);
     }
 
@@ -84,37 +83,37 @@ const Upload = () => {
 
             <section className="main-section">
                 <div className="page-heading py-16">
-                    <h1>Smart feedback for your dream job</h1>
+                    <h1>Analyze Your Resume with AI</h1>
                     {isProcessing ? (
                         <>
-                            <h2>{statusText}</h2>
+                            <h2 className="text-blue-400 animate-pulse">{statusText}</h2>
                             <img src="/images/resume-scan.gif" className="w-full" />
                         </>
                     ) : (
-                        <h2>Drop your resume for an ATS score and improvement tips</h2>
+                        <h2>Enter the job details and upload your resume to get your ATS score and personalized tips</h2>
                     )}
                     {!isProcessing && (
                         <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8">
                             <div className="form-div">
                                 <label htmlFor="company-name">Company Name</label>
-                                <input type="text" name="company-name" placeholder="Company Name" id="company-name" />
+                                <input type="text" name="company-name" placeholder="e.g. Razorpay, Google, Swiggy" id="company-name" />
                             </div>
                             <div className="form-div">
                                 <label htmlFor="job-title">Job Title</label>
-                                <input type="text" name="job-title" placeholder="Job Title" id="job-title" />
+                                <input type="text" name="job-title" placeholder="e.g. Frontend Developer, Full Stack Engineer" id="job-title" />
                             </div>
                             <div className="form-div">
                                 <label htmlFor="job-description">Job Description</label>
-                                <textarea rows={5} name="job-description" placeholder="Job Description" id="job-description" />
+                                <textarea rows={5} name="job-description" placeholder="Paste the job description here for more accurate ATS scoring..." id="job-description" />
                             </div>
 
                             <div className="form-div">
-                                <label htmlFor="uploader">Upload Resume</label>
+                                <label htmlFor="uploader">Upload Resume (PDF only)</label>
                                 <FileUploader onFileSelect={handleFileSelect} />
                             </div>
 
                             <button className="primary-button" type="submit">
-                                Analyze Resume
+                                Analyze My Resume
                             </button>
                         </form>
                     )}

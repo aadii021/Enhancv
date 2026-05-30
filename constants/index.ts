@@ -1,182 +1,92 @@
 export const resumes: Resume[] = [
     {
         id: "1",
-        companyName: "Google",
+        companyName: "Flipkart",
         jobTitle: "Frontend Developer",
         imagePath: "/images/resume_01.png",
         resumePath: "/resumes/resume-1.pdf",
         feedback: {
-            overallScore: 85,
-            ATS: {
-                score: 90,
-                tips: [],
-            },
-            toneAndStyle: {
-                score: 90,
-                tips: [],
-            },
-            content: {
-                score: 90,
-                tips: [],
-            },
-            structure: {
-                score: 90,
-                tips: [],
-            },
-            skills: {
-                score: 90,
-                tips: [],
-            },
+            overallScore: 82,
+            ATS: { score: 88, tips: [] },
+            toneAndStyle: { score: 85, tips: [] },
+            content: { score: 80, tips: [] },
+            structure: { score: 84, tips: [] },
+            skills: { score: 87, tips: [] },
         },
     },
     {
         id: "2",
-        companyName: "Microsoft",
-        jobTitle: "Cloud Engineer",
+        companyName: "Razorpay",
+        jobTitle: "Full Stack Engineer",
         imagePath: "/images/resume_02.png",
         resumePath: "/resumes/resume-2.pdf",
         feedback: {
-            overallScore: 55,
-            ATS: {
-                score: 90,
-                tips: [],
-            },
-            toneAndStyle: {
-                score: 90,
-                tips: [],
-            },
-            content: {
-                score: 90,
-                tips: [],
-            },
-            structure: {
-                score: 90,
-                tips: [],
-            },
-            skills: {
-                score: 90,
-                tips: [],
-            },
+            overallScore: 58,
+            ATS: { score: 60, tips: [] },
+            toneAndStyle: { score: 55, tips: [] },
+            content: { score: 62, tips: [] },
+            structure: { score: 58, tips: [] },
+            skills: { score: 60, tips: [] },
         },
     },
     {
         id: "3",
-        companyName: "Apple",
-        jobTitle: "iOS Developer",
+        companyName: "Swiggy",
+        jobTitle: "React Developer",
         imagePath: "/images/resume_03.png",
         resumePath: "/resumes/resume-3.pdf",
         feedback: {
-            overallScore: 75,
-            ATS: {
-                score: 90,
-                tips: [],
-            },
-            toneAndStyle: {
-                score: 90,
-                tips: [],
-            },
-            content: {
-                score: 90,
-                tips: [],
-            },
-            structure: {
-                score: 90,
-                tips: [],
-            },
-            skills: {
-                score: 90,
-                tips: [],
-            },
+            overallScore: 74,
+            ATS: { score: 78, tips: [] },
+            toneAndStyle: { score: 72, tips: [] },
+            content: { score: 70, tips: [] },
+            structure: { score: 76, tips: [] },
+            skills: { score: 73, tips: [] },
         },
     },
     {
         id: "4",
-        companyName: "Google",
-        jobTitle: "Frontend Developer",
+        companyName: "Zepto",
+        jobTitle: "Frontend Engineer",
         imagePath: "/images/resume_01.png",
         resumePath: "/resumes/resume-1.pdf",
         feedback: {
-            overallScore: 85,
-            ATS: {
-                score: 90,
-                tips: [],
-            },
-            toneAndStyle: {
-                score: 90,
-                tips: [],
-            },
-            content: {
-                score: 90,
-                tips: [],
-            },
-            structure: {
-                score: 90,
-                tips: [],
-            },
-            skills: {
-                score: 90,
-                tips: [],
-            },
+            overallScore: 90,
+            ATS: { score: 92, tips: [] },
+            toneAndStyle: { score: 88, tips: [] },
+            content: { score: 91, tips: [] },
+            structure: { score: 89, tips: [] },
+            skills: { score: 93, tips: [] },
         },
     },
     {
         id: "5",
-        companyName: "Microsoft",
-        jobTitle: "Cloud Engineer",
+        companyName: "CRED",
+        jobTitle: "UI Engineer",
         imagePath: "/images/resume_02.png",
         resumePath: "/resumes/resume-2.pdf",
         feedback: {
-            overallScore: 55,
-            ATS: {
-                score: 90,
-                tips: [],
-            },
-            toneAndStyle: {
-                score: 90,
-                tips: [],
-            },
-            content: {
-                score: 90,
-                tips: [],
-            },
-            structure: {
-                score: 90,
-                tips: [],
-            },
-            skills: {
-                score: 90,
-                tips: [],
-            },
+            overallScore: 63,
+            ATS: { score: 65, tips: [] },
+            toneAndStyle: { score: 60, tips: [] },
+            content: { score: 64, tips: [] },
+            structure: { score: 62, tips: [] },
+            skills: { score: 67, tips: [] },
         },
     },
     {
         id: "6",
-        companyName: "Apple",
-        jobTitle: "iOS Developer",
+        companyName: "Meesho",
+        jobTitle: "Software Engineer",
         imagePath: "/images/resume_03.png",
         resumePath: "/resumes/resume-3.pdf",
         feedback: {
-            overallScore: 75,
-            ATS: {
-                score: 90,
-                tips: [],
-            },
-            toneAndStyle: {
-                score: 90,
-                tips: [],
-            },
-            content: {
-                score: 90,
-                tips: [],
-            },
-            structure: {
-                score: 90,
-                tips: [],
-            },
-            skills: {
-                score: 90,
-                tips: [],
-            },
+            overallScore: 77,
+            ATS: { score: 80, tips: [] },
+            toneAndStyle: { score: 75, tips: [] },
+            content: { score: 78, tips: [] },
+            structure: { score: 76, tips: [] },
+            skills: { score: 79, tips: [] },
         },
     },
 ];
@@ -226,16 +136,14 @@ export const AIResponseFormat = `
     }`;
 
 export const prepareInstructions = ({jobTitle, jobDescription}: { jobTitle: string; jobDescription: string; }) =>
-    `You are an expert in ATS (Applicant Tracking System) and resume analysis.
-      Please analyze and rate this resume and suggest how to improve it.
-      The rating can be low if the resume is bad.
-      Be thorough and detailed. Don't be afraid to point out any mistakes or areas for improvement.
-      If there is a lot to improve, don't hesitate to give low scores. This is to help the user to improve their resume.
-      If available, use the job description for the job user is applying to to give more detailed feedback.
-      If provided, take the job description into consideration.
+    `You are a senior technical recruiter and ATS optimization expert with 10+ years of experience 
+      evaluating resumes for top tech companies in India and globally.
+      Analyze the provided resume thoroughly and give honest, detailed feedback.
+      Do not sugarcoat — if the resume has serious issues, reflect that in low scores.
+      Your goal is to help the candidate land interviews by identifying exactly what needs to improve.
+      Consider Indian job market standards and top tech company expectations.
       The job title is: ${jobTitle}
       The job description is: ${jobDescription}
       Provide the feedback using the following format:
       ${AIResponseFormat}
-      Return the analysis as an JSON object, without any other text and without the backticks.
-      Do not include any other text or comments.`;
+      Return the analysis as a JSON object only, without any other text, comments or backticks.`;

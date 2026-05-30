@@ -7,8 +7,8 @@ import {useEffect, useState} from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Resumind" },
-    { name: "description", content: "Smart feedback for your dream job!" },
+    { title: "Enhancv — AI Resume Analyzer" },
+    { name: "description", content: "Get instant ATS score and AI-powered feedback tailored to your dream job." },
   ];
 }
 
@@ -44,16 +44,17 @@ export default function Home() {
 
     <section className="main-section">
       <div className="page-heading py-16">
-        <h1>Track Your Applications & Resume Ratings</h1>
+        <h1>Your Resume Dashboard</h1>
         {!loadingResumes && resumes?.length === 0 ? (
-            <h2>No resumes found. Upload your first resume to get feedback.</h2>
+            <h2>No resumes yet — upload your first one and get instant AI feedback.</h2>
         ): (
-          <h2>Review your submissions and check AI-powered feedback.</h2>
+          <h2>Review your resume scores and AI-powered improvement tips.</h2>
         )}
       </div>
       {loadingResumes && (
           <div className="flex flex-col items-center justify-center">
             <img src="/images/resume-scan-2.gif" className="w-[200px]" />
+            <p className="text-gray-400 mt-3 text-sm">Analyzing your resumes...</p>
           </div>
       )}
 
@@ -67,8 +68,9 @@ export default function Home() {
 
       {!loadingResumes && resumes?.length === 0 && (
           <div className="flex flex-col items-center justify-center mt-10 gap-4">
+            <p className="text-gray-400 text-sm">Stand out from the crowd with an ATS-optimized resume</p>
             <Link to="/upload" className="primary-button w-fit text-xl font-semibold">
-              Upload Resume
+              Upload Your Resume
             </Link>
           </div>
       )}

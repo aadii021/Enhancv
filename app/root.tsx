@@ -37,6 +37,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Enhancv — AI Resume Analyzer</title>
+        <meta name="description" content="Upload your resume, paste a job description and get an instant ATS score with AI-powered feedback tailored to your profile." />
+        <meta name="author" content="Aditya Jha" />
+        <meta property="og:title" content="Enhancv — AI Resume Analyzer" />
+        <meta property="og:description" content="Get your resume ATS score and personalized feedback instantly." />
         <Meta />
         <Links />
       </head>
